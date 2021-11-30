@@ -1,5 +1,4 @@
 const notes = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
 
@@ -17,7 +16,6 @@ notes.post('/', (req, res) => {
       const newNote = {
         title,
         text,
-        id: uuidv4(),
       };
       fs.readFile('./db/db.json', (err, data) => {
         if (err) {console.log (err);}
